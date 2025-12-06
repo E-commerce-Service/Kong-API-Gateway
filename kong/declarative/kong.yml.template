@@ -2,8 +2,8 @@ _format_version: "3.0"
 
 services:
   - name: Products-API
-    host: host.docker.internal
-    port: 8080
+    host: ${PRODUCTS_API_HOST}
+    port: ${PRODUCTS_API_PORT}
     protocol: http
     routes:
       - name: products-api-route
@@ -20,8 +20,8 @@ services:
         strip_path: false
 
   - name: Reviews-API
-    host: host.docker.internal
-    port: 8081
+    host: ${REVIEWS_API_HOST}
+    port: ${REVIEWS_API_PORT}
     protocol: http
     routes:
       - name: reviews-api-route
@@ -38,8 +38,8 @@ services:
         strip_path: false
 
   - name: Payment-API
-    host: host.docker.internal
-    port: 8082
+    host: ${PAYMENT_API_HOST}
+    port: ${PAYMENT_API_PORT}
     protocol: http
     routes:
       - name: payment-api-route

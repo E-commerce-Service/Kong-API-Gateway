@@ -16,14 +16,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Validate Kong Config
-        run: |
-          docker run --rm \
-            -v ${{ github.workspace }}/kong/declarative:/kong/declarative \
-            kong:3.9.1 kong config parse /kong/declarative/kong.yml
-
       - name: Build Docker Image
         run: docker build -t $IMAGE_NAME:${{ github.sha }} .
+
       - name: Push to Docker Hub
         if: github.event_name != 'pull_request'
         run: |

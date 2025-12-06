@@ -5,8 +5,18 @@ services:
     restart: unless-stopped
     networks:
       - kong-net
-
     ports:
       - "8000:8000"
       - "8443:8443"
       - "8001:8001"
+
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /kong/declarative/kong.yml
+
+      PRODUCTS_API_HOST: ${PRODUCTS_API_HOST}
+      PRODUCTS_API_PORT: ${PRODUCTS_API_PORT}
+      REVIEWS_API_HOST: ${REVIEWS_API_HOST}
+      REVIEWS_API_PORT: ${REVIEWS_API_PORT}
+      PAYMENT_API_HOST: ${PAYMENT_API_HOST}
+      PAYMENT_API_PORT: ${PAYMENT_API_PORT}

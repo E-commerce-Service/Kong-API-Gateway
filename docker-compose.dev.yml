@@ -5,9 +5,17 @@ services:
       context: .
     image: wesley00s/kong-gateway:latest
     restart: unless-stopped
+    environment:
+      PRODUCTS_API_HOST: host.docker.internal
+      PRODUCTS_API_PORT: 8080
+      REVIEWS_API_HOST: host.docker.internal
+      REVIEWS_API_PORT: 8081
+      PAYMENT_API_HOST: host.docker.internal
+      PAYMENT_API_PORT: 8082
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /kong/declarative/kong.yml.template
     networks:
       - kong-net
-
     ports:
       - "8000:8000"
       - "8443:8443"
