@@ -6,51 +6,27 @@ services:
     port: ${PRODUCTS_API_PORT}
     protocol: https
     routes:
-      - name: products-api-route
+      - name: products-wildcard-route
         paths:
-          - /ecommerce/api/v1
-        strip_path: false
-      - name: products-docs-ui-route
-        paths:
-          - /ecommerce/api/swagger-ui
-        strip_path: false
-      - name: products-docs-api-route
-        paths:
-          - /ecommerce/api/v3/api-docs
-        strip_path: false
+          - /ecommerce/products
+        strip_path: true
 
   - name: Reviews-API
     host: ${REVIEWS_API_HOST}
     port: ${REVIEWS_API_PORT}
     protocol: https
     routes:
-      - name: reviews-api-route
+      - name: products-wildcard-route
         paths:
-          - /reviews/api/v1
-        strip_path: false
-      - name: reviews-docs-ui-route
-        paths:
-          - /reviews/api/swagger-ui
-        strip_path: false
-      - name: reviews-docs-api-route
-        paths:
-          - /reviews/api/v3/api-docs
-        strip_path: false
+          - /ecommerce/reviews
+        strip_path: true
 
   - name: Payment-API
     host: ${PAYMENT_API_HOST}
     port: ${PAYMENT_API_PORT}
     protocol: https
     routes:
-      - name: payment-api-route
+      - name: products-wildcard-route
         paths:
-          - /payment/api/v1
-        strip_path: false
-      - name: payment-docs-ui-route
-        paths:
-          - /payment/api/swagger-ui
-        strip_path: false
-      - name: payment-docs-api-route
-        paths:
-          - /payment/api/v3/api-docs
-        strip_path: false
+          - /ecommerce/payment
+        strip_path: true
